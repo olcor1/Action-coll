@@ -19,7 +19,7 @@ def scrape_actions_selenium():
     driver = webdriver.Chrome(options=chrome_options)
     driver.get("https://www.registredesactionscollectives.quebec/fr/Consulter/RecherchePublique")
 
-    wait = WebDriverWait(driver, 10)
+    wait = WebDriverWait(driver, 30)
 
     input_debut = wait.until(EC.presence_of_element_located((By.ID, "DateDepotDepart")))
     input_debut.clear()
@@ -33,7 +33,7 @@ def scrape_actions_selenium():
     bouton_rechercher.click()
 
     wait.until(EC.presence_of_element_located((By.ID, "tableau-resultats")))
-    time.sleep(2)
+    time.sleep(5)
 
     tableau = driver.find_element(By.ID, "tableau-resultats")
     lignes = tableau.find_elements(By.CSS_SELECTOR, "tbody tr[role='row']")
