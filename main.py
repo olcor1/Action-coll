@@ -23,7 +23,7 @@ def scrape_actions_selenium():
 
     input_debut = wait.until(EC.presence_of_element_located((By.ID, "DateDepotDepart")))
     input_debut.clear()
-    input_debut.send_keys("2025-01-01")
+    input_debut.send_keys("2025-09-01")
 
     input_fin = driver.find_element(By.ID, "DateDepotFin")
     input_fin.clear()
