@@ -1,4 +1,9 @@
+from flask import Flask
 import requests
+
+app = Flask(__name__)
+
+
 
 url = "https://www.registredesactionscollectives.quebec/fr/Consulter/RechercherVueAjax"
 payload = {
@@ -12,5 +17,10 @@ headers = {
 
 response = requests.post(url, data=payload, headers=headers)
 print(response.text)  # Le HTML des résultats
+@app.route("/")
+def home():
+    return "Hello, Flask!"
 
+if __name__ == "__main__":
+    app.run()
 
